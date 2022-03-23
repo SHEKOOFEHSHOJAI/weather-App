@@ -4,15 +4,20 @@ const card = document.querySelector('.card');
 
 //updateUI
 const updateUI=(data)=>{
-  const cityDate = data.cityDets;
-  const weather = data.weather;
+  // const cityDate = data.cityDets;
+  // const weather = data.weather;
+
+  //updateUI destructure
+  const{cityDets,weather}=data
   //apdate detalis templeate
+
+  //  ${weather.Temperature.Metric.Value}
   detalis.innerHTML = `
-   <h5 class="my-3">${cityDate.EnglishName}/h5>
+   <h5 class="my-3">${cityDate.EnglishName}</h5>
                 <div class="my-3">${weather.WeatherText}</div>
                 <div class="display-4 my-4">
                     <span>
-                       teamp
+                     temp
                     </span>
                      <span>
                        &deg;C
@@ -21,7 +26,8 @@ const updateUI=(data)=>{
   
   
   `;
-  console.log(data);
+  //remove the d-none class if parent
+  card.classList.remove("d-none");
 }
 
 //update city
