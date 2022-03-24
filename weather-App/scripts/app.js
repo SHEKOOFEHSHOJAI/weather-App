@@ -13,6 +13,8 @@ const updateUI=(data)=>{
   //apdate detalis templeate
 
   //  ${weather.Temperature.Metric.Value}
+  //EnglishName is name city
+  //WeatherText is example sunny
   detalis.innerHTML = `
    <h5 class="my-3">${cityDate.EnglishName}</h5>
                 <div class="my-3">${weather[0].WeatherText}</div>
@@ -28,22 +30,21 @@ const updateUI=(data)=>{
   
   `;
 
-
   //apdate the night/day and icon image
-  
+
   const iconSrc = `img/icons/${weather[0].WeatherIcon}.svg`;
   icon.setAttribute("src", iconSrc);
-
-  let timeSrc=null
-  if (weather.IsDayTime) {
-
-   timeSrc='img/day.svg';
-  }else{
+ 
+ //time
+  let timeSrc = null;
+  if (weather[0].IsDayTime) {
+    timeSrc = "img/day.svg";
+  } else {
     timeSrc = "img/night.svg";
   }
 
-  time.setAttribute('src',timeSrc)
- 
+  time.setAttribute("src", timeSrc);
+
   //remove the d-none class if parent
   card.classList.remove("d-none");
 }

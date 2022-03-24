@@ -1,4 +1,5 @@
-//get wather
+//get wather 
+//Current Conditions
 const getweather = async (id) => {
   const base = "http://dataservice.accuweather.com/currentconditions/v1/";
   const query = `${id}?apikey=${key}`;
