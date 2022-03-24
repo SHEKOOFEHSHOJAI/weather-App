@@ -15,10 +15,10 @@ const updateUI=(data)=>{
   //  ${weather.Temperature.Metric.Value}
   detalis.innerHTML = `
    <h5 class="my-3">${cityDate.EnglishName}</h5>
-                <div class="my-3">${weather.WeatherText}</div>
+                <div class="my-3">${weather[0].WeatherText}</div>
                 <div class="display-4 my-4">
                     <span>
-                     temp
+                     ${weather[0].Temperature.Metric.Value}
                     </span>
                      <span>
                        &deg;C
@@ -30,13 +30,18 @@ const updateUI=(data)=>{
 
 
   //apdate the night/day and icon image
+  
+  const iconSrc = `img/icons/${weather[0].WeatherIcon}.svg`;
+  icon.setAttribute("src", iconSrc);
+
   let timeSrc=null
   if (weather.IsDayTime) {
 
-   timeSrc='img/day.svg'
+   timeSrc='img/day.svg';
   }else{
     timeSrc = "img/night.svg";
   }
+
   time.setAttribute('src',timeSrc)
  
   //remove the d-none class if parent
