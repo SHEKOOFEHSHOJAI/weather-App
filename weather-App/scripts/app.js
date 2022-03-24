@@ -1,14 +1,15 @@
 const cityForm=document.querySelector('form')
 const detalis = document.querySelector(".detalis");
 const card = document.querySelector('.card');
-
+const time=document.querySelector('.time')
+const icon = document.querySelector(".icon img");
 //updateUI
 const updateUI=(data)=>{
-  // const cityDate = data.cityDets;
-  // const weather = data.weather;
+  const cityDate = data.cityDets;
+  const weather = data.weather;
 
   //updateUI destructure
-  const{cityDets,weather}=data
+  // const{cityDets,weather}=data
   //apdate detalis templeate
 
   //  ${weather.Temperature.Metric.Value}
@@ -26,6 +27,18 @@ const updateUI=(data)=>{
   
   
   `;
+
+
+  //apdate the night/day and icon image
+  let timeSrc=null
+  if (weather.IsDayTime) {
+
+   timeSrc='img/day.svg'
+  }else{
+    timeSrc = "img/night.svg";
+  }
+  time.setAttribute('src',timeSrc)
+ 
   //remove the d-none class if parent
   card.classList.remove("d-none");
 }
